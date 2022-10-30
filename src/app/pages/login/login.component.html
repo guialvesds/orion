@@ -1,0 +1,27 @@
+<div class="container">
+    <form>
+      <div class="card">
+        <div class="lorenLogin">
+          <h2>Bem-vindo(a) a Orion!</h2>
+          <p>
+            Faça o login utilizando o seu e-mail e sua senha, caso não tenha
+            acesso, basta criar a sua conta <a routerLink="/account">Clicando aqui.</a>
+          </p>
+        </div>
+        <div class="inputs">
+          <h2>Login</h2>
+          <p>Utilize o seu e-mail cadastrado.</p>
+          <div class="validation" *ngIf="">
+            <p>E-mail ou senha inválido.</p>
+          </div>
+          <input  type="email" name="email" placeholder="E-mail" #email required email>
+          <input  type="password" name="password" placeholder="Senha" #password />
+          <div class="buttons">
+            <button type="submit" >Entrar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  

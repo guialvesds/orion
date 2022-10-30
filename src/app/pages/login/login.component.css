@@ -1,0 +1,103 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(231, 231, 231); */
+    min-width: 80vw;
+    min-height: 85vh;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 75vh;
+    box-shadow: 0px 8px 10px  #52525252;
+   border-radius: 10px;
+}
+
+.lorenLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    text-align: center;
+    background-color: #38b0b4;
+    color: white;
+    border-radius: 10px 0px 0px 10px;
+    letter-spacing: 1px;
+}
+
+.lorenLogin h2 {
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+}
+
+.lorenLogin p > a{
+
+    color: yellow;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 100%; 
+    background-color: white;
+    border-radius: 0px 10px 10px 00px;
+    
+}
+.inputs h2 {
+    margin-top: -50px;
+    margin-bottom: 50px;
+    color: #38b0b4;
+    font-size: 2.5em;
+}
+.inputs p {
+    font-size: 0.7em;
+    color: #727272;
+}
+
+.inputs input {
+    background-color: #bebebe52;
+    width: 50%;
+    height: 7.5%;
+    margin-top: 5px;
+    padding-left: 9px;
+    border: 0;
+    margin: 6px;
+    outline: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;     
+}
+
+.buttons button {
+    width: 150px;
+    height: 32px;
+    background-color: #38b0b4;
+    border: none;
+    color: white;
+    letter-spacing: 1.5px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.validation  {
+    border-left: solid 2.5px red;
+    margin: 3px;
+}
+
+.validation p {
+    color: red;
+    margin-left: 5px;
+}

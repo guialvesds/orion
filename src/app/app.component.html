@@ -1,4 +1,4 @@
-<div class="containerNav">
+<div class="containerNav" *ngIf="mostrar">
   <div class="img">
       <img src="../../../assets/icon.png" alt="logo">
   <h3>Orion</h3>
@@ -12,7 +12,7 @@
 <main class="container">
   <router-outlet></router-outlet>
 </main>
-<footer>
+<footer *ngIf="mostrar">
   <h3>Controle os seus produtos em sua loja!</h3>
   <p>Orion <span>@ 2022</span></p>
 </footer>

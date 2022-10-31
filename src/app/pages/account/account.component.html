@@ -1,20 +1,23 @@
 <!-- #f é uma variável e podemos utilizar ela no html tranquilamente -->
-<form class="container" >
+<form class="container" [formGroup]="formulario" (submit)="submit()">
     <div class="card">
       <div class="inputs">
         <h2>Criar Conta</h2>
-        <div class="validation">
-          <p>E-mail ou senha inválido.</p>
+        <div class="validation" *ngIf="validation">
+          <p>Todos os campos são obrigatórios.</p>
         </div>
         <!-- ngModel pega os value dos campos pelo campo name -->
         <!-- utilizando no formato [(ngModel)] podemos pegar um valor de uma váriavel e atribuir ao input -->
-        <input type="text" name="name" placeholder="Nome" id="nome" required/>
+        <input type="text" name="name" placeholder="Nome" id="nome" formControlName="name" required/>
         <!-- email no final é o pattern para o email -->
         <!-- <div>{{nome.className}}</div> -->
-        <input type="email" name="email" placeholder="E-mail" id="email" ngModel required email />
-        <input type="password" name="password" placeholder="Senha" id="senha" ngModel required />
-        <input type="password" name="password" placeholder="Confirmar Senha" id="confirmaSenha" ngModel />
+        <input type="email" name="email" placeholder="E-mail" id="email"   formControlName="email" required email />
+        <input type="password" name="password" placeholder="Senha" id="senha"  formControlName="password" required />
+        <input type="password" name="password" placeholder="Confirmar Senha"  formControlName="rPassword" id="confirmaSenha"  />
         <div class="buttons">
+          <div class="validation" *ngIf="passValidation">
+            <p>Senhas não conferem.</p>
+          </div>
           <!-- Verificamos se o formulário está com os campos com required não validos e desabilita o botão. -->
           <button type="submit">Cadastrar</button>
         </div>
@@ -24,7 +27,7 @@
         <h2>Junte-se a Orion!</h2>
         <p>
           Se já possui conta por aqui, basta acessar a sua conta
-          <a routerLink="/">Clicando aqui.</a>
+          <a routerLink="/login">Clicando aqui.</a>
         </p>
       </div>
     </div>

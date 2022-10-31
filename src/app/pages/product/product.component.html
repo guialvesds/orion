@@ -1,1 +1,49 @@
-<p>product works!</p>
+<div class="container">
+    <div class="buttonsAction">
+        <div class="search">
+            <label for="search">Pequisa</label>
+            <input type="text" name="search" id="" (input)="searchs($event)">
+        </div>
+        <div class="new">
+            <input type="button" value="+">
+        </div>
+    </div>
+    
+    <!-- Tabela -->
+    <div class="tableSection">
+        <section>
+            <div class="tbl-header">
+              <table cellpadding="0" cellspacing="0">
+                <thead class="thead">
+                  <tr>
+                    <th>Código</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th>Ação</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="tbl-content">
+              <table cellpadding="0" cellspacing="0" class="tableBody">
+                <tbody id="tabela-contas">
+                    <tr *ngFor="let product of products" class="tr">
+                        <td>{{product.code}}</td>
+                        <td>{{product.name}}</td>
+                        <td>R$ {{product.price}}</td>
+                        <td>UN {{product.inventory ?? 0}}</td>
+                        <td class="action">
+                            <input type="button" value="Editar" class="edit"/>  
+                            <input type="button" value="Excluir" class="exclui"/>                         
+                        </td>                    
+                    </tr>                    
+                </tbody>
+              </table>              
+            </div>
+          </section>
+    </div>
+    <div class="footerProduct">
+        <h3 clas>Total de produtos cadastrados: {{totalP}}</h3>
+    </div>
+</div>

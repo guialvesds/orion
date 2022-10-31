@@ -1,5 +1,5 @@
 .container {
-    min-height: 85vh;
+    height: 87.3vh;
     background-color: rgb(231, 231, 231);
     
 }
@@ -40,7 +40,7 @@ footer {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 20px;
+    height: 35px;
     padding-top: 10px;
     
 }

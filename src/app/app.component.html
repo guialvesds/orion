@@ -1,3 +1,4 @@
+<app-alert></app-alert>
 <div class="containerNav" *ngIf="mostrar">
   <div class="img">
       <img src="../../../assets/icon.png" alt="logo">
@@ -6,7 +7,7 @@
   <nav>
       <a routerLink="/">Produtos</a>
       <a routerLink="/perfil">Perfil</a>
-      <a routerLink="/login" >Sair</a>
+      <a (click)="sair()" >Sair</a>
   </nav>
 </div>
 <main class="container">

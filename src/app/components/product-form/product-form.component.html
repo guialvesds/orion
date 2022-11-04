@@ -1,1 +1,38 @@
-<p>product-form works!</p>
+<form [formGroup]="productForm" (ngSubmit)="submit()" #formdG="ngForm">
+    <div class="card">
+        <div class="title">
+            <h2>{{title}}</h2>
+        </div>
+    <div class="form-group">
+        <label for="code">Código:</label>
+        <input type="number" name="code" id="code" formControlName="code" />
+        <div *ngIf="code.invalid && formdG.submitted" class="validation">
+            <p>O código é obirgatório!</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="name">Nome:</label>
+        <input type="text" name="name" id="name" formControlName="name" />
+        <div *ngIf="name.invalid && formdG.submitted" class="validation">
+            <p>O nome é obirgatório!</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="price">Preço:</label>
+        <input type="number" name="price" id="name" formControlName="price" />
+        <div *ngIf="price.invalid && formdG.submitted" class="validation">
+            <p>O nome é obirgatório!</p>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inventory">Estoque:</label>
+        <input type="number" name="inventory" id="inventory" formControlName="inventory" />
+        <div *ngIf="name.invalid && formdG.submitted" class="validation">
+            <p>O nome é obirgatório!</p>
+        </div>
+    </div>
+    <div class="button">
+        <input type="submit" value="{{btnText}}">
+    </div>
+</div>
+</form>

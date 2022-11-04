@@ -11,8 +11,6 @@ import { User } from '../model/User';
 })
 export class UserService {
 
-  usuarioAutenticado: boolean = true;
-
   private baseAPiUrl = environment.baseApiUrl;
   private apiUrl = `${this.baseAPiUrl}/user`;
   

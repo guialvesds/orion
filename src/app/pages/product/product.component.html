@@ -5,7 +5,7 @@
             <input type="text" name="search" id="" (input)="searchs($event)">
         </div>
         <div class="new">
-            <input type="button" value="+">
+            <input type="button" value="+" routerLink="/newProduct">
         </div>
     </div>
     
@@ -27,15 +27,15 @@
             </div>
             <div class="tbl-content">
               <table cellpadding="0" cellspacing="0" class="tableBody">
-                <tbody id="tabela-contas">
+                <tbody id="tabela-contas" *ngIf="products.length > 0; else noProducts">
                     <tr *ngFor="let product of products" class="tr">
                         <td>{{product.code}}</td>
                         <td>{{product.name}}</td>
                         <td>R$ {{product.price}}</td>
-                        <td>UN {{product.inventory ?? 0}}</td>
+                        <td>UN {{product.inventory ? product.inventory : 0}}</td>                       
                         <td class="action">
-                            <input type="button" value="Editar" class="edit"/>  
-                            <input type="button" value="Excluir" class="exclui"/>                         
+                            <input type="button" value="Editar" class="edit" routerLink="/product/edit/{{product._id}}"/>  
+                            <input type="button" value="Excluir" class="exclui" (click)="remove(product._id)"/>                         
                         </td>                    
                     </tr>                    
                 </tbody>
@@ -46,4 +46,7 @@
     <div class="footerProduct">
         <h3 clas>Total de produtos cadastrados: {{totalP}}</h3>
     </div>
+    <ng-template #noProducts>
+      <h1>Carregando...</h1>
+    </ng-template>
 </div>

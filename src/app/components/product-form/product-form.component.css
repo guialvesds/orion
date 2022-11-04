@@ -1,0 +1,71 @@
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: aquamarine; */
+    width: 100vw;
+    height: 70vh;
+    /* margin-top: 20px; */
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 85%;
+    background-color: white;
+    box-shadow: 5px 5px 10px grey;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 5px;
+    width: 60%;
+    height: 70%; 
+    /* background-color: red; */
+}
+
+.form-group input{
+   margin-left: 10px;
+    background-color: #bebebe52;
+    width: 60%;
+    height: 45%;
+    margin-top: 5px;
+    padding-left: 9px;
+    border: 0;
+    margin: 6px;
+    outline: 0;
+
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;     
+}
+
+.button input {
+    width: 150px;
+    height: 32px;
+    background-color: #38b0b4;
+    border: none;
+    color: white;
+    letter-spacing: 1.5px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button input:hover {    
+    /* background-color: #297d80; */
+    box-shadow: 5px 5px 10px grey;
+}

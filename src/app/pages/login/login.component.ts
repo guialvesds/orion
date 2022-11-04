@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { User } from 'src/app/model/User';
 import { UserService } from 'src/app/services/user.service';
-import { ShowNavService } from 'src/app/services/show-nav.service';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,12 +18,12 @@ export class LoginComponent implements OnInit {
 
   validation: boolean = false;
   validationButton: boolean = false;
-
+  autenticado: boolean = false;
   constructor(
     private UserServices: UserService,
     private router: Router,
     private formBuild: FormBuilder,
-    private showNav: ShowNavService
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -40,36 +40,68 @@ export class LoginComponent implements OnInit {
 
       this.users = data;
 
-      for (let usuario of this.users) {
-        if (
-          this.formulario.value.email == usuario.email &&
-          this.formulario.value.password == usuario.password &&
-          this.formulario.value.email !== null &&
-          this.formulario.value.password !== null
-        ) {
-          // this.UserServices.usuarioAutenticado = true;
-          // this.showNav.mostrarMenuEmitter.emit(true);
-          this.router.navigate(['/']);
-          console.log('Login realizado com sucesso!');
-        } else {
-          // this.UserServices.usuarioAutenticado = false;
-          // this.showNav.mostrarMenuEmitter.emit(false);
-          console.log('Erro ao realziar login!');
-        }
+      const teste = {
+        name: 'teste@teste.com',
+        senha: '1234',
+      };
 
-        if (
-          this.formulario.value.email !== usuario.email &&
-          this.formulario.value.email !== null
-        ) {
-          this.validation = true;
-        }
-        if (
-          this.formulario.value.email == null &&
-          this.formulario.value.password == null
-        ) {
-          this.validationButton = true;
-        }
+      if (
+        this.formulario.value.email == teste.name &&
+        this.formulario.value.password == teste.senha
+        // this.formulario.value.email !== null &&
+        // this.formulario.value.password !== null
+      ) {
+        // this.showNav.mostrarMenuEmitter.emit(true);
+        this.router.navigate(['/']);
+        this.authService.usuarioAutenticado = true;
+        this.authService.mostraMenu.emit(true);
+        console.log('Login realizado com sucesso!');
+        console.log(this.authService.usuarioAutenticado);
+      } else {
+        // this.showNav.mostrarMenuEmitter.emit(false);
+        this.authService.usuarioAutenticado = false;
+        this.authService.mostraMenu.emit(false);
+        console.log('Erro ao realziar login!');
+        console.log(this.authService.usuarioAutenticado);
       }
+
+      // for (let usuario of this.users) {
+      //   if (
+      //     this.formulario.value.email == usuario.email &&
+      //     this.formulario.value.password == usuario.password
+      //     // this.formulario.value.email !== null &&
+      //     // this.formulario.value.password !== null
+      //   ) {
+      //     // this.showNav.mostrarMenuEmitter.emit(true);
+      //     this.router.navigate(['/']);
+      //     this.authService.usuarioAutenticado = true;
+      //     this.authService.mostraMenu.emit(true);
+      //     console.log('Login realizado com sucesso!');
+      //     console.log(this.authService.usuarioAutenticado);
+
+      //   } else {
+      //     // this.showNav.mostrarMenuEmitter.emit(false);
+      //     this.authService.usuarioAutenticado = false;
+      //     this.authService.mostraMenu.emit(false);
+      //     console.log('Erro ao realziar login!');
+      //     console.log(this.authService.usuarioAutenticado);
+      //   }
+
+      //   if (
+      //     this.formulario.value.email !== usuario.email &&
+      //     this.formulario.value.email !== null
+      //   ) {
+      //     this.validation = true;
+      //   }
+      //   if (
+      //     this.formulario.value.email == null &&
+      //     this.formulario.value.password == null
+      //   ) {
+      //     this.validationButton = true;
+      //   }
+      // }
     });
+
+    console.log(this.authService.usuarioAutenticado);
   }
 }

@@ -18,6 +18,7 @@ nav {
 }
 nav a {
     margin-left: 10px;
+    cursor: pointer;
 }
 .img {
     display: flex;

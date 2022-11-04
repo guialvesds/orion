@@ -49,7 +49,7 @@
       font-size: 25px;
       border: 1px solid #38b0b4;
       box-shadow: 2px 3px 5px rgb(110, 110, 110);
-
+      cursor: pointer;
     }
 
     table {
@@ -69,9 +69,9 @@
     }
     .tbl-header{
       width: 100%;
-      background-color: rgb(48, 47, 47);
+      background-color: rgb(87, 87, 87);
       /* margin-top: -30px; */
-      border-radius: 10px 10px 0 0;
+      border-radius: 4px 4px 0 0;
      }
     .tbl-content{
       width: 100%;
@@ -111,13 +111,20 @@
       outline: 0;
       color: white;
       letter-spacing: 1px;
+      cursor: pointer;
       /* box-shadow: 1px 1px 1px rgb(110, 110, 110); */
     }
      .edit{
       background-color: rgb(114, 114, 223);
     }
+    .edit:hover {
+      background-color: rgb(71, 71, 153);
+    }
     .exclui {
       background-color: rgb(223, 114, 114);
+    }
+    .exclui:hover {
+      background-color: rgb(158, 75, 75);
     }
 
     .footerProduct {

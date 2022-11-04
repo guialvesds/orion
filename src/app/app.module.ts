@@ -11,9 +11,14 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { AccountComponent } from './pages/account/account.component';
 import { LoginComponent } from './pages/login/login.component';
 
-import { AuthGuard } from './guards/auth.guards';
-import { UserService } from './services/user.service';
 import { ProductFormComponent } from './components/product-form/product-form.component';
+import { EditProductComponent } from './pages/edit-product/edit-product.component';
+import { NewProductComponent } from './pages/new-product/new-product.component';
+import { AlertComponent } from './components/alert/alert.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthService } from './pages/login/auth.service';
+import { AuthGuard } from './guards/auth.guard';
+import { HomeGuard } from './guards/home.guard';
 
 @NgModule({
   declarations: [
@@ -22,16 +27,24 @@ import { ProductFormComponent } from './components/product-form/product-form.com
     PerfilComponent,
     AccountComponent,
     LoginComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    EditProductComponent,
+    NewProductComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    AuthService, 
+    AuthGuard, 
+    HomeGuard,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

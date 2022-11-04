@@ -5,6 +5,8 @@ import { User } from 'src/app/model/User';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
+import { AlertService } from 'src/app/services/alert.service';
+
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -19,7 +21,8 @@ export class AccountComponent implements OnInit {
   constructor(
     private formBuild: FormBuilder,
     private router: Router,
-    private userServices: UserService
+    private userServices: UserService,
+    private alert: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -37,30 +40,27 @@ export class AccountComponent implements OnInit {
       this.users = data;
     });
 
-    for (let usuario of this.users) {
-      if (this.formulario.value.email === usuario.email) {
-        console.log('Usuário já cadastrado!');
-      } else if (
-        this.formulario.value.name == null &&
-        this.formulario.value.email == null &&
-        this.formulario.value.password == null
-      ) {
-        this.validation = true;
-        console.log('Todos os campos são obrigatórios!');
-      } else if (
-        this.formulario.value.password !== this.formulario.value.rPassword
-      ) {
-        this.passValidation = true;
-        console.log('Senhas não conferem!');
-      } else {
-        await this.userServices.creatUser(this.formulario.value).subscribe();
+    if (
+      this.formulario.value.name == null &&
+      this.formulario.value.email == null &&
+      this.formulario.value.password == null
+    ) {
+      this.validation = true;
+      console.log('Todos os campos são obrigatórios!');
+    } else if (
+      this.formulario.value.password !== this.formulario.value.rPassword
+    ) {
+      this.passValidation = true;
+      console.log('Senhas não conferem!');
+    } else {
+      await this.userServices.creatUser(this.formulario.value).subscribe();
 
-        console.log('Usuário cadastrado com sucesso!');
+      console.log('Usuário cadastrado com sucesso!');
+      this.alert.add("Usuário criado com sucesso!")
 
-        setTimeout(() => {
-          this.router.navigate(['/login']);
-        }, 2000);
-      }
+      setTimeout(() => {
+        this.router.navigate(['/login']);
+      }, 2000);
     }
   }
 }

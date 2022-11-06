@@ -11,7 +11,7 @@ import { User } from '../model/User';
 })
 export class UserService {
 
-  private baseAPiUrl = environment.baseApiUrl;
+  private baseAPiUrl: string = environment.baseApiUrl;
   private apiUrl = `${this.baseAPiUrl}/user`;
   
   usuarios: User[] = [];

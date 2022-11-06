@@ -5,7 +5,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 })
 export class AuthService {
 
- public usuarioAutenticado: boolean = true;
+ public usuarioAutenticado: boolean = false;
  public mostraMenu = new EventEmitter<boolean>();
 
   constructor() { }

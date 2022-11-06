@@ -52,6 +52,14 @@
       cursor: pointer;
     }
 
+    .new input:hover {
+      color: #ffffff;
+      background-color:#38b0b4;
+      border: 1px solid #38b0b4;
+      box-shadow: 3px 3px 8px #80f9fd;
+      cursor: pointer;
+    }
+
     table {
       width: 100%;
       table-layout: fixed;

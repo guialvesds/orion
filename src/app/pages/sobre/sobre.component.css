@@ -1,0 +1,38 @@
+.container {
+    width: 100vw;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.card {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    height: 70%;
+    background-color: white;
+    box-shadow: 3px 3px 5px grey;
+    border-radius: 3px;
+}
+
+.title  {
+   text-align: center;
+}
+.card p {
+    margin: 5px;
+    text-align: center;
+}
+
+.footer-card p {
+    margin: 5px;
+    text-align: center;
+    
+}
+.footer-card a {
+    color: rgb(49, 129, 153);
+    
+}

@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 import { Product } from 'src/app/model/Product';
 import { ProductService } from 'src/app/services/product.service';
-import { Router, ActivatedRoute } from '@angular/router';
 
 import { AlertService } from 'src/app/services/alert.service';
 import { AuthService } from '../login/auth.service';
+import { UserService } from 'src/app/services/user.service';
+
+import { User } from 'src/app/model/User';
 
 @Component({
   selector: 'app-product',
@@ -15,6 +17,8 @@ import { AuthService } from '../login/auth.service';
 export class ProductComponent implements OnInit {
   allProducts: Product[] = [];
   products: Product[] = [];
+  user: User[] =[];
+
 
   idProduct!: Product;
 
@@ -23,10 +27,9 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private productServices: ProductService,
-    private route: ActivatedRoute,
-    private router: Router,
     private alert: AlertService,
-    public authService: AuthService
+    public authService: AuthService,
+    private userServices: UserService
   ) {}
 
   ngOnInit(): void {
@@ -39,6 +42,8 @@ export class ProductComponent implements OnInit {
       this.totalP = data.length;
 
     });
+
+    this.userServices.getUsers()
   }
 
   //Pesquisa

@@ -16,9 +16,13 @@ export class LoginComponent implements OnInit {
   formulario!: FormGroup;
   users: User[] = [];
 
+  userLogado!: any;
+
   validation: boolean = false;
   validationButton: boolean = false;
   autenticado: boolean = false;
+
+  validationText: string = '';
   constructor(
     private UserServices: UserService,
     private router: Router,
@@ -32,6 +36,14 @@ export class LoginComponent implements OnInit {
       email: [null],
       password: [null],
     });
+
+    this.UserServices.getUsers().subscribe((item) => {
+      const data = item.data;
+
+      this.users = data;
+
+      console.log(this.users);
+    });
   }
 
   submit() {
@@ -40,68 +52,33 @@ export class LoginComponent implements OnInit {
 
       this.users = data;
 
-      const teste = {
-        name: 'teste@teste.com',
-        senha: '1234',
-      };
+      const index: number = 0;
 
-      if (
-        this.formulario.value.email == teste.name &&
-        this.formulario.value.password == teste.senha
-        // this.formulario.value.email !== null &&
-        // this.formulario.value.password !== null
-      ) {
-        // this.showNav.mostrarMenuEmitter.emit(true);
-        this.router.navigate(['/']);
-        this.authService.usuarioAutenticado = true;
-        this.authService.mostraMenu.emit(true);
-        console.log('Login realizado com sucesso!');
-        console.log(this.authService.usuarioAutenticado);
-      } else {
-        // this.showNav.mostrarMenuEmitter.emit(false);
-        this.authService.usuarioAutenticado = false;
-        this.authService.mostraMenu.emit(false);
-        console.log('Erro ao realziar login!');
-        console.log(this.authService.usuarioAutenticado);
+      while (index < this.users.length) {
+        this.users.filter((item) => {
+         
+          if (
+            item.email === this.formulario.value.email &&
+            item.password === this.formulario.value.password
+          ) {
+            this.router.navigate(['/']);
+            this.authService.usuarioAutenticado = true;
+            this.authService.mostraMenu.emit(true);            
+          }
+          if (
+            item.email !== this.formulario.value.email &&
+            item.password !== this.formulario.value.password
+          ) {
+            this.validationText = 'E-mail ou senha inválido.';
+            this.validation = true;
+          }
+        });
+
+        return;
+
+        
       }
-
-      // for (let usuario of this.users) {
-      //   if (
-      //     this.formulario.value.email == usuario.email &&
-      //     this.formulario.value.password == usuario.password
-      //     // this.formulario.value.email !== null &&
-      //     // this.formulario.value.password !== null
-      //   ) {
-      //     // this.showNav.mostrarMenuEmitter.emit(true);
-      //     this.router.navigate(['/']);
-      //     this.authService.usuarioAutenticado = true;
-      //     this.authService.mostraMenu.emit(true);
-      //     console.log('Login realizado com sucesso!');
-      //     console.log(this.authService.usuarioAutenticado);
-
-      //   } else {
-      //     // this.showNav.mostrarMenuEmitter.emit(false);
-      //     this.authService.usuarioAutenticado = false;
-      //     this.authService.mostraMenu.emit(false);
-      //     console.log('Erro ao realziar login!');
-      //     console.log(this.authService.usuarioAutenticado);
-      //   }
-
-      //   if (
-      //     this.formulario.value.email !== usuario.email &&
-      //     this.formulario.value.email !== null
-      //   ) {
-      //     this.validation = true;
-      //   }
-      //   if (
-      //     this.formulario.value.email == null &&
-      //     this.formulario.value.password == null
-      //   ) {
-      //     this.validationButton = true;
-      //   }
-      // }
     });
-
-    console.log(this.authService.usuarioAutenticado);
+    console.log('usuário logado', this.userLogado);
   }
 }

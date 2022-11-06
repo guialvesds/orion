@@ -12,14 +12,11 @@
           <h2>Login</h2>          
           <p>Utilize o seu e-mail cadastrado.</p>
           <div class="validation" *ngIf="validation">
-            <p>E-mail ou senha inválido.</p>
+            <p>{{validationText}}</p>
           </div>          
           <input  type="email"  name="email" placeholder="E-mail"  id="email" formControlName="email" required email>
           <input  type="password" name="password" placeholder="Senha"  id="password" formControlName="password" required />
           <div class="buttons">
-            <div class="validation" *ngIf="validationButton">
-              <p>Preencha o campo de e-mail  e senha.</p>
-            </div>
             <button type="submit" >Entrar</button>
           </div>
         </div>

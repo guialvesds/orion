@@ -1,7 +1,7 @@
-export interface User {
-    name: string;
-    email: string;
-    password: string;
-    aproved: boolean
+export class User {
+    name!: string;
+    email!: string;
+    password!: string;
+    aproved?: boolean
 }
  

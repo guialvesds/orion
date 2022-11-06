@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './pages/product/product.component';
-import { PerfilComponent } from './pages/perfil/perfil.component';
+import { SobreComponent } from './pages/sobre/sobre.component';
 import { AccountComponent } from './pages/account/account.component';
 import { LoginComponent } from './pages/login/login.component';
 
@@ -18,13 +18,13 @@ import { AlertComponent } from './components/alert/alert.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthService } from './pages/login/auth.service';
 import { AuthGuard } from './guards/auth.guard';
-import { HomeGuard } from './guards/home.guard';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
-    PerfilComponent,
+    SobreComponent,
     AccountComponent,
     LoginComponent,
     ProductFormComponent,
@@ -43,7 +43,6 @@ import { HomeGuard } from './guards/home.guard';
   providers: [
     AuthService, 
     AuthGuard, 
-    HomeGuard,
   ],
   bootstrap: [AppComponent],
 })

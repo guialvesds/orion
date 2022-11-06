@@ -13,7 +13,7 @@ import { Product } from 'src/app/model/Product';
 export class ProductFormComponent implements OnInit {
 
   @Output() onsubmit = new EventEmitter<Product>();
-  @Input() productData: Product | null = null;
+  @Input() productData!: Product;
   @Input() btnText!: string;
   @Input() title!: string;
 

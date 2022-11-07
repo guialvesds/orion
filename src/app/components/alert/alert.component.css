@@ -1,8 +1,8 @@
 .message {
     position: fixed;
     top: 8em;
-    width: 50%;
-    margin-left: 50%;
+    width: 40%;
+    margin-left: 55%;
     left: -25%;
     z-index: 10;
     background-color: #fff;

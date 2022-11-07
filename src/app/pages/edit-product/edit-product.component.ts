@@ -34,6 +34,7 @@ export class EditProductComponent implements OnInit {
   }
 
   async editP(productData: Product) {
+
     const id = this.productData._id;
 
     const dados = {

@@ -41,8 +41,7 @@ export class LoginComponent implements OnInit {
       const data = item.data;
 
       this.users = data;
-
-      console.log(this.users);
+      
     });
   }
 
@@ -79,6 +78,6 @@ export class LoginComponent implements OnInit {
         
       }
     });
-    console.log('usuário logado', this.userLogado);
+  
   }
 }

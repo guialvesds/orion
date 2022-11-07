@@ -1,7 +1,15 @@
- <app-product-form 
- (onsubmit)="editP($event)" 
- [productData]="productData" 
- [btnText]="btnText" 
- [title]="title">
-</app-product-form>
+<div class="container">
+<div class="titleForm">
+    <h3>Editando o produto, {{productData.code}}</h3>
+</div>
+    <app-product-form 
+    (onsubmit)="editP($event)" 
+    [productData]="productData" 
+    [btnText]="btnText" 
+    [title]="title">
+    </app-product-form>
+
+</div>
+ 
+    
 

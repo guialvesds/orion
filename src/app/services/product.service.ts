@@ -33,8 +33,8 @@ export class ProductService {
   }
 
   editProduct(id: string, dados: Product): Observable<Product>{
-      const url = `${this.apiUrl}/${id}`;
-      return this.http.put<Product>(url, dados);
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.put<Product>(url, dados);
   }
 
   removeProduct(id: any){

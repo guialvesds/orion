@@ -25,15 +25,13 @@ export class NewProductComponent implements OnInit {
   ngOnInit(): void {}
 
   async createProduct(data: Product) {
-    // const formData = new FormData();
+    
+    const codRandon: number =  9999;
 
-    // formData.append("code", data.code);
-    // formData.append("name", data.name);
-    // formData.append("price", data.price);
-    // formData.append("inventory", data.inventory);
+   
     try {
       const dados = {
-        code: data.code,
+        code:  Math.floor(Math.random() * codRandon),
         name: data.name,
         price: data.price,
         inventory: data.inventory,
@@ -46,7 +44,7 @@ export class NewProductComponent implements OnInit {
 
         setTimeout(() => {
           this.router.navigate(['/']);
-        }, 2000);
+        }, 1000);
 
         console.log('Produto cadastrado com sucesso!');
       } else {

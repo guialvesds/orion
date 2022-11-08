@@ -29,12 +29,15 @@ export class EditProductComponent implements OnInit {
     this.productServices.getP(id).subscribe((item) => {
       this.productData = item.data;
 
-      console.log(this.productData);
+      // console.log(this.productData);
     });
+
+    const codP = this.productData.code;
+
+    console.log('Editando o produto', codP);
   }
 
-  async editP(productData: Product) {
-
+   editP(productData: Product) {
     const id = this.productData._id;
 
     const dados = {
@@ -44,8 +47,8 @@ export class EditProductComponent implements OnInit {
       inventory: productData.inventory,
     };
 
-    await this.productServices.editProduct(id!, dados).subscribe();
-
+     this.productServices.editProduct(id!, dados).subscribe();
     this.alert.add(`produto ${this.productData.code} alterado com sucesso!`);
+    this.router.navigate(['/']);
   }
 }

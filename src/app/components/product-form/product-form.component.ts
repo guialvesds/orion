@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 import { Product } from 'src/app/model/Product';
 
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-form',
@@ -19,15 +19,19 @@ export class ProductFormComponent implements OnInit {
 
   productForm!: FormGroup;
 
-  constructor(private formBuild: FormBuilder) { }
+  constructor(private formBuild: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.productForm = this.formBuild.group({
-      code: new FormControl(this.productData ? this.productData.code : ''),
+      code: new FormControl(this.productData ? this.productData.code : '0'),
       name: new FormControl( this.productData ? this.productData.name : ''),
       price: new FormControl( this.productData ? this.productData.price : ''),
       inventory: new FormControl( this.productData ? this.productData.inventory : ''),
     });
+
+    // if(!this.productData){
+    //   this.code.disable
+    // }
   }
 
   get code() {
@@ -41,12 +45,16 @@ export class ProductFormComponent implements OnInit {
   }
 
   submit(){
-      if(this.code.invalid || this.name.invalid || this.price.invalid){
+      if(this.name.invalid || this.price.invalid){
           return;
       }
       console.log(this.productForm.value);
       this.onsubmit.emit(this.productForm.value);
       
+  }
+
+  back(){
+    this.router.navigate(['/']);
   }
 
 }

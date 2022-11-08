@@ -3,9 +3,9 @@
         <div class="title">
             <h2>{{title}}</h2>
         </div>
-    <div class="form-group">
+    <div class="form-group" *ngIf="!productData ? code.invalid: code.valid " >
         <label for="code">Código:</label>
-        <input type="number" name="code" id="code" formControlName="code" />
+        <input type="number" name="code" id="code" formControlName="code"/>
         <div *ngIf="code.invalid && formdG.submitted" class="validation">
             <p>O código é obirgatório!</p>
         </div>
@@ -33,6 +33,7 @@
     </div>
     <div class="button">
         <input type="submit" value="{{btnText}}">
+        <input type="submit" value="Cancelar" (click)="back()" class="cancel">
     </div>
 </div>
 </form>

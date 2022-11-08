@@ -31,7 +31,7 @@
                     <tr *ngFor="let product of products" class="tr">
                         <td>{{product.code}}</td>
                         <td>{{product.name}}</td>
-                        <td>R$ {{product.price}}</td>
+                        <td>R$ {{product.price.toFixed(2)}}</td>
                         <td>UN {{product.inventory ? product.inventory : 0}}</td>                       
                         <td class="action">
                             <input type="button" value="Editar" class="edit" routerLink="/product/edit/{{product._id}}"/>  

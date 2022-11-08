@@ -41,16 +41,23 @@ form {
     padding-left: 9px;
     border: 0;
     margin: 6px;
-    outline: 0;
+    outline: 0;   
 
 }
 
+.form-group input[type=number]::-webkit-inner-spin-button{    
+     -webkit-appearance: none
+ 
+ }
+
 .button {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-evenly;
     align-items: center;
-    margin-top: 10px;     
+    margin-top: 10px;    
+    width: 100%; 
+ 
 }
 
 .button input {
@@ -63,6 +70,10 @@ form {
     font-size: 0.9em;
     font-weight: bold;
     cursor: pointer;
+}
+.button input:last-child {
+    background-color: #d48585;
+    color: white;
 }
 
 .button input:hover {    

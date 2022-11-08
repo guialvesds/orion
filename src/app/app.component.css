@@ -3,7 +3,9 @@
     background-color: rgb(231, 231, 231);
     
 }
-
+.title {
+    color: white;
+}
 .containerNav {
     background-color: #38b0b4;
     display: flex;

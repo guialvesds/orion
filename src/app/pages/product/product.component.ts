@@ -52,7 +52,7 @@ export class ProductComponent implements OnInit {
     const value = target.value;
 
     this.products = this.allProducts.filter((item) => {
-      return item.name.toLowerCase().includes(value);
+      return item.name.includes(value);
     });
   }
 

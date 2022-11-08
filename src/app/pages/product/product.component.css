@@ -42,11 +42,12 @@
       box-shadow: 2px 3px 5px rgb(110, 110, 110);
     }
     .new input {
-      width: 60px;
+      width: 160px;
       height: 30px;
       color: #185557;
       background-color: white;
-      font-size: 25px;
+      font-size: 1em;
+      font-weight: bold;
       border: 1px solid #38b0b4;
       box-shadow: 2px 3px 5px rgb(110, 110, 110);
       cursor: pointer;

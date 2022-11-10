@@ -19,7 +19,6 @@ export class ProductComponent implements OnInit {
   products: Product[] = [];
   user: User[] =[];
 
-
   idProduct!: Product;
 
   totalP!: number;
@@ -40,7 +39,6 @@ export class ProductComponent implements OnInit {
       this.products = data;
       this.allProducts = data;
       this.totalP = data.length;
-
     });
 
     this.userServices.getUsers()
@@ -52,8 +50,9 @@ export class ProductComponent implements OnInit {
     const value = target.value;
 
     this.products = this.allProducts.filter((item) => {
-      return item.name.includes(value);
+      return item.name.toLowerCase().includes(value);   
     });
+   
   }
 
   async remove(id: any) {

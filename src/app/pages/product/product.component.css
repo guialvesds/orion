@@ -103,13 +103,33 @@
       color: rgb(252, 252, 252);
       text-transform: uppercase;
     }
+
+    /* th:first-child{
+      width: 100px;
+    }
+    th:last-child{
+      width: 200px;
+    } */
+
     td{
       padding: 8px 15px;
       font-weight: 300;
       font-size: 14px;
       color: rgb(75, 75, 75);
       border: 5px;  
+      border-bottom: solid 1px rgb(240, 240, 240);
     }
+
+    /* td:first-child{
+      width: 100px;
+    }
+    td:last-child{
+      width: 200px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    } */
   
     .action input{
       margin-left: 5px;

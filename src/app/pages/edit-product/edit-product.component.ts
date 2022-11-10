@@ -47,7 +47,7 @@ export class EditProductComponent implements OnInit {
       inventory: productData.inventory,
     };
 
-     this.productServices.editProduct(id!, dados).subscribe();
+    this.productServices.editProduct(id!, dados).subscribe();
     this.alert.add(`produto ${this.productData.code} alterado com sucesso!`);
     this.router.navigate(['/']);
   }
